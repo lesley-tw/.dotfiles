@@ -21,16 +21,16 @@ dotfiles config --local status.showUntrackedFiles no
 dotfiles status
 
 # .zshrc
-dotfiles add .zshrc
+dotfiles add $HOME/.zshrc
 dotfiles commit -m 'feat: add .zshrc'
 
 # ZSH_CONFIG
-dotfiles add ~/ZSH_CONFIG/*
+dotfiles add $HOME/ZSH_CONFIG/*
 dotfiles commit -m 'feat: add ZSH_CONFIG files'
 
 # nvim
-dotfiles add ~/.config/nvim/coc-settings.json
-dotfiles add ~/.config/nvim/init.vim
+dotfiles add $HOME/.config/nvim/coc-settings.json
+dotfiles add $HOME/.config/nvim/init.vim
 dotfiles commit -m 'feat: add coc-settings, init.vim'
 
 dotfiles remote add origin git@github.com:USERNAME/.dotfiles.git

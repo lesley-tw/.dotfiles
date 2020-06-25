@@ -17,9 +17,6 @@ Plug 'vim-airline/vim-airline-themes'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" pep8
-Plug 'tell-k/vim-autopep8'
-
 " nerd tree
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -27,7 +24,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " multiple cursors
-" <C-N>
+" <C-n>
 Plug 'terryma/vim-multiple-cursors'
 
 " commenter
@@ -52,29 +49,18 @@ nnoremap <C-W> :bn<CR>
 nnoremap <C-E> :bp<CR>
 nnoremap <C-Q> :bd<CR>
 
-" ************auto pep8************
-" autocmd FileType python noremap <buffer> <F6> :call Autopep8()<CR>
-
 " *************F5 Auto Compile (Normal+Visual mode)***********
 map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
         exec "w"
-        if &filetype == 'c'
-                exec "!g++ % -o %<"
-                exec "!time ./%<"
-        elseif &filetype == 'sh'
-                :!time bash %
+        if &filetype == 'sh'
+        	:!time bash %
         elseif &filetype == 'python'
                 exec "!clear":
                 exec "!time python3 %"
-        elseif &filetype == 'html'
-                exec "!firefox % &"
         elseif &filetype == 'go'
                 " exec "!go build %<"
                 exec "!time go run %"
-        elseif &filetype == 'mkd'
-                exec "!~/.vim/markdown.pl % > %.html &"
-                exec "!firefox %.html &"
         endif
 endfunc
 

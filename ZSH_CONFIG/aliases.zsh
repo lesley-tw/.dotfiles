@@ -19,7 +19,7 @@ alias lc="exa --long --header --icons -s type"
 alias reload-credentials='rm $HOME/.aws/credentials $HOME/.aws/config && \
 	                  launchctl unload -w $HOME/Library/LaunchAgents/com.aws.key.rotate.plist && \
 			  launchctl load -w $HOME/Library/LaunchAgents/com.aws.key.rotate.plist'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dotfiles='/usr/local/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # awscli
 alias awsd="aws --profile spn-dev"

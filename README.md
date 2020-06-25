@@ -39,7 +39,7 @@ dotfiles push -u origin master
 
 # Neovim Shortcuts
 
-### Customize Shortcuts
+### customized shortcuts
   - Switch to next tab
     - In `NORMAL` mode, press `Ctrl + e`
   - Switch to previous tab

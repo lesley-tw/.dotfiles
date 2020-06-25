@@ -5,7 +5,7 @@ fi
 source $HOME/ZSH_CONFIG/environment.zsh
 
 typeset -ga sources
-sources+="$ZSH/oh-my-zsh.sh"
+# sources+="$ZSH/oh-my-zsh.sh"
 sources+="<(kubectl completion zsh)"
 sources+="$ZSH_CONFIG/zinit.zsh"
 sources+="$ZSH_CONFIG/aliases.zsh"

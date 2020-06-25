@@ -136,6 +136,7 @@ hi FoldColumn ctermbg=bg guibg=bg
 
 " ##################################PlugIn Setting##################################
 " *************vim-airline setting*************
+" Check themes here: https://github.com/jaredramirez/vim-airline-themes/blob/a643026f0b666974fdfc0e7474b3a70a7ef4101c/doc/airline-themes.txt
 let g:airline_theme='bubblegum'                                                                                                            
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1

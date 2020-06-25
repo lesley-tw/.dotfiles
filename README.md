@@ -36,3 +36,101 @@ dotfiles commit -m 'feat: add coc-settings, init.vim'
 dotfiles remote add origin git@github.com:USERNAME/.dotfiles.git
 dotfiles push -u origin master
 ```
+
+# Neovim Shortcuts
+
+### Customize Shortcuts
+  - Switch to next tab
+    - In `NORMAL` mode, press `Ctrl + e`
+  - Switch to previous tab
+    - In `NORMAL` mode, press `Ctrl + w`
+  - Close tab
+    - In `NORMAL` mode, press `Ctrl + q`
+  - Auto compile file
+    - In `NORMAL` mode, press `F5`
+  - Save file
+    - In `INSERT` mode, press `Ctrl + s`
+
+### tpope/vim-surround
+  - `ds`: Delete brackets
+    - Press `ds` `"`
+    
+      ```
+      "Hello world!"
+      ```
+      to change it to
+      ```
+      Hello world!
+      ```
+  - `cs`: Replace brackets
+    - Press `cs` `"(`
+      ```
+      "Hello world!"
+      ```
+      to change it to
+      ```
+      (Hello world!)
+      ```
+  - `cS`: Replace brackets and add text in new line
+    - Press `cS` `"{`
+      ```
+      "Hello world!"
+      ```
+      to change it to
+      ```
+      {
+          Hello world!
+      }
+      ```
+  - `ys`: Add brackets
+    - With the cursor on "Hello", press `ys` `w` `[`
+      ```
+      Hello world!
+      ```
+      to change it to
+      ```
+      [Hello] world!
+      ```
+  - `yS`: Add brackets and add text in new line
+    - With the cursor on "Hello", press `ys` `w` `[`
+      ```
+      Hello world!
+      ```
+      to change it to
+      ```
+      [
+          Hello
+      ] world!
+      ```
+
+### preservim/nerdtree
+ - Toggle NERDTree
+   - In `NORMAL` mode, press `-`
+
+### terryma/vim-multiple-cursors
+ - Use multiple cursors
+   - Select lines in `VISUAL` mode, press `Ctrl + n`
+
+### scrooloose/nerdcommenter
+  - Add comments
+    - Select lines in `VISUAL` mode, press `\` `cc`
+  - Uncomments
+    - Select lines in `VISUAL` mode, press `\` `cu`
+
+### wincent/command-t
+  - Use command-t
+    - In `NORMAL` mode, press `\` `t`
+    - Enter file name in search bar
+      - Open File in current tab
+      	- Press `Enter`
+      - Open file in horizontal window
+        - Press `Ctrl + C`
+      - Open file in vertical window
+        - Press `Ctrl + v`
+      - Open file in new tab
+        - Press `Ctrl + t`
+      - Leave file search bar
+        - Press `Ctrl + c`
+  
+
+

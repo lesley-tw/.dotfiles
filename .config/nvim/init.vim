@@ -5,7 +5,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
+
 Plug 'tpope/vim-surround'
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " vim airline
@@ -25,9 +27,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " multiple cursors
+" <C-N>
 Plug 'terryma/vim-multiple-cursors'
 
 " commenter
+" <leader>cc, <leader>cu
 Plug 'scrooloose/nerdcommenter'
 
 " visually displaying indent levels 
@@ -185,6 +189,8 @@ let g:coc_global_extensions = [
   \ 'coc-prettier', 
   \ 'coc-json',
   \ 'coc-yaml',
+  \ 'coc-snippets',
+  \ 'coc-pairs',
   \ ]
 
 " From README

@@ -1,5 +1,5 @@
 export ZSH_CONFIG=$HOME/ZSH_CONFIG
-export ZSH=$HOME/.oh-my-zsh
+# export ZSH=$HOME/.oh-my-zsh
 
 export TERM="xterm-256color"
 export LANG=en_US.UTF-8

@@ -1,22 +1,8 @@
-# ls color
-eval $(gdircolors -b $HOME/.dircolors)
-if [ -n "$LS_COLORS" ]; then
-    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-fi
-
-# rvm
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# nvm
-export NVM_DIR=$HOME/.nvm
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# vivid
+export LS_COLORS="$(vivid generate molokai)"
 
 # gvm
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
-# z.lua
-#eval "$(lua /path/to/z.lua --init zsh enhanced once echo)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -15,7 +15,7 @@ alias cocedit="$EDITOR $HOME/.config/nvim/coc-settings.json"
 
 alias ca="conda activate"
 alias sc="source activate"
-alias grep="rp"
+alias grep="rg"
 alias k="kubectl"
 alias ls="exa --icons -s type"
 alias lc="exa --long --header --icons -s type"

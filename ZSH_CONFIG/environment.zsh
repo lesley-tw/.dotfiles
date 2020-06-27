@@ -10,3 +10,6 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export WORKON_HOME=$HOME/workspaces
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:$HOME/Library/Python/3.7/bin/:$HOME/.local/bin:$HOME/.rvm/bin:$PATH
 
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+

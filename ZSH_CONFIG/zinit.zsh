@@ -28,6 +28,10 @@ zinit light lincheney/fzf-tab-completion
 zinit ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
 zinit light sharkdp/fd
 
+# bat
+zinit ice as"command" from"gh-r" mv"bat* -> bat" pick"bat/bat"
+zinit light sharkdp/bat
+
 # zsh-completions
 zinit ice blockf
 zinit light zsh-users/zsh-completions
@@ -40,8 +44,9 @@ zinit load zsh-users/zsh-autosuggestions
 zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
 zinit light zdharma/fast-syntax-highlighting
 
-# history-search-multi-word
-zinit light zdharma/history-search-multi-word
+# HSTR (HiSToRy)
+# zinit ice as"command" from"gh-r" mv"hstr* -> hstr" pick"hstr/hstr"
+# zinit load dvorka/hstr
 
 # z.lua
 zinit ice lucid wait='1'
@@ -64,7 +69,7 @@ zinit light asdf-vm/asdf
 
 # vivid (LS_COLORS Manager)
 zinit ice as"command" from"gh-r" mv"vivid* -> vivid" pick"vivid/vivid"
-zinit load sharkdp/vivid
+zinit light sharkdp/vivid
 
 ### OMZ lib/plugins
 zinit snippet OMZ::lib/completion.zsh

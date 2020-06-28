@@ -60,16 +60,16 @@ nnoremap <C-Q> :bd<CR>
 " *************F5 Auto Compile (Normal+Visual mode)***********
 map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
-        exec "w"
-        if &filetype == 'sh'
-            :!time bash %
-        elseif &filetype == 'python'
-                exec "!clear":
-                exec "!time python3 %"
-        elseif &filetype == 'go'
-                " exec "!go build %<"
-                exec "!time go run %"
-        endif
+    exec "w"
+    if &filetype == 'sh'
+        :!time bash %
+    elseif &filetype == 'python'
+        exec "!clear":
+        exec "!time python3 %"
+    elseif &filetype == 'go'
+        " exec "!go build %<"
+        exec "!time go run %"
+    endif
 endfunc
 
 " *************ctrl+s Save (Insert mode)*************
@@ -106,7 +106,13 @@ set backspace=indent,eol,start
 set clipboard+=unnamedplus
 
 let g:auto_save = 1
-let g:auto_save_events = ["InsertLeave", "TextChanged", "TextChangedI", "CursorHoldI", "CompleteDone"]
+let g:auto_save_events = [
+\       'InsertLeave',
+\       'TextChanged',
+\       'TextChangedI',
+\       'CursorHoldI',
+\       'CompleteDone'
+\   ]
 
 " ##################################Python Setting##################################
 let python_highlight_all=1
@@ -144,7 +150,7 @@ let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 
-"" enable tabline
+" enable tabline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -157,17 +163,17 @@ let g:NERDTreeDirArrowCollapsible = ''
 
 " *************Nerd Tree git*************
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
+\       'Modified' : '✹',
+\       'Staged'   : '✚',
+\       'Untracked': '✭',
+\       'Renamed'  : '➜',
+\       'Unmerged' : '═',
+\       'Deleted'  : '✖',
+\       'Dirty'    : '✗',
+\       'Clean'    : '✔︎',
+\       'Ignored'  : '☒',
+\       'Unknown'  : '?'
+\   }
 
 " *************Indent Guide*************
 let g:indent_guides_enable_on_vim_startup = 1
@@ -183,10 +189,10 @@ let g:gutentags_ctags_tagfile = '.tags'
 
 let g:gutentags_modules = []
 if executable('ctags')
-	let g:gutentags_modules += ['ctags']
+    let g:gutentags_modules += ['ctags']
 endif
 if executable('gtags-cscope') && executable('gtags')
-	let g:gutentags_modules += ['gtags_cscope']
+    let g:gutentags_modules += ['gtags_cscope']
 endif
 
 let s:vim_tags = expand('~/.cache/tags')
@@ -205,40 +211,52 @@ let g:gutentags_auto_add_gtags_cscope = 0
 let g:gutentags_define_advanced_commands = 1
 let g:gutentags_trace = 1
 
-let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.json', '*.xml', 
-                            \ '*.phar', '*.ini', '*.rst', '*.md', '*.bin', 
-                            \ '*storage/*', '*vendor/*', '*node_modules/*', '*public/*']
+let g:gutentags_ctags_exclude = [
+\       '*.css',
+\       '*.html',
+\       '*.json',
+\       '*.xml',
+\       '*.phar',
+\       '*.ini',
+\       '*.rst',
+\       '*.md',
+\       '*.bin',
+\       '*storage/*',
+\       '*vendor/*',
+\       '*node_modules/*',
+\       '*public/*'
+\   ]
 let g:gutentags_plus_switch = 1
 
 " *************Tagbar*************
 map <silent> = :TagbarToggle<CR>
 let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-	    \ 'p:package',
-	    \ 'i:imports:1',
-	    \ 'c:constants',
-	    \ 'v:variables',
-	    \ 't:types',
-	    \ 'n:interfaces',
-	    \ 'w:fields',
-	    \ 'e:embedded',
-	    \ 'm:methods',
-	    \ 'r:constructor',
-	    \ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-	    \ 't' : 'ctype',
-	    \ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-	    \ 'ctype' : 't',
-	    \ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-\ }
+\       'ctagstype': 'go',
+\       'kinds': [
+\           'p:package',
+\           'i:imports:1',
+\           'c:constants',
+\           'v:variables',
+\           't:types',
+\           'n:interfaces',
+\           'w:fields',
+\           'e:embedded',
+\           'm:methods',
+\           'r:constructor',
+\           'f:functions'
+\       ],
+\       'sro': '.',
+\       'kind2scope': {
+\           't': 'ctype',
+\           'n': 'ntype'
+\       },
+\       'scope2kind': {
+\           'ctype': 't',
+\           'ntype': 'n'
+\       },
+\       'ctagsbin': 'gotags',
+\       'ctagsargs': '-sort -silent'
+\   }
 
 " *************fzf*************
 " shortcuts
@@ -255,29 +273,31 @@ nnoremap <leader>fh? :History:
 
 " This is the default extra key bindings
 let g:fzf_action = {
-            \ 'ctrl-t': 'tab split',
-            \ 'ctrl-x': 'split',
-            \ 'ctrl-v': 'vsplit' }
+\       'ctrl-t': 'tab split',
+\       'ctrl-x': 'split',
+\       'ctrl-v': 'vsplit'
+\   }
 
 " Default fzf layout
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~40%' }
 
 " Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+let g:fzf_colors = {
+\       'fg'     : ['fg', 'Normal'],
+\       'bg'     : ['bg', 'Normal'],
+\       'hl'     : ['fg', 'Comment'],
+\       'fg+'    : ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+\       'bg+'    : ['bg', 'CursorLine', 'CursorColumn'],
+\       'hl+'    : ['fg', 'Statement'],
+\       'info'   : ['fg', 'PreProc'],
+\       'border' : ['fg', 'Ignore'],
+\       'prompt' : ['fg', 'Conditional'],
+\       'pointer': ['fg', 'Exception'],
+\       'marker' : ['fg', 'Keyword'],
+\       'spinner': ['fg', 'Label'],
+\       'header' : ['fg', 'Comment']
+\   }
 
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and
@@ -288,17 +308,17 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " *************Conquer of Completion*************
 " coc config
 let g:coc_global_extensions = [
-    \ 'coc-tabnine',
-    \ 'coc-python',
-    \ 'coc-cfn-lint',
-    \ 'coc-tsserver',
-    \ 'coc-eslint', 
-    \ 'coc-prettier', 
-    \ 'coc-json',
-    \ 'coc-yaml',
-    \ 'coc-snippets',
-    \ 'coc-pairs',
-    \ ]
+\       'coc-tabnine',
+\       'coc-python',
+\       'coc-cfn-lint',
+\       'coc-tsserver',
+\       'coc-eslint', 
+\       'coc-prettier', 
+\       'coc-json',
+\       'coc-yaml',
+\       'coc-snippets',
+\       'coc-pairs',
+\   ]
 
 " From README
 " TextEdit might fail if hidden is not set.
@@ -420,13 +440,13 @@ nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call   CocAction('format')
 
 " Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+command! -nargs=? Fold   :call   CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR     :call   CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
@@ -450,4 +470,3 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-

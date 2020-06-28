@@ -16,3 +16,12 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# fzf
+fzf-history-widget-accept() {
+  fzf-history-widget
+  zle accept-line
+}
+zle -N fzf-history-widget-accept
+bindkey '^X^R' fzf-history-widget-accept
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

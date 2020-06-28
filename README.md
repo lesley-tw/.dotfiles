@@ -124,3 +124,24 @@ dotfiles push -u origin master
 ### vim-gutentags
  - Go to tag/function/class
     - In `NORMAL` mode, press `Ctrl + ]`
+### junegunn/fzf
+ - Search lines in all buffers
+    - In `NORMAL` mode, press `\` `fl`
+ - Search lines in current buffer
+    - In `NORMAL` mode, press `\` `fb`
+ - Search files
+    - In `NORMAL` mode, press `\` `ff`
+ - Search git files (git ls-files)
+    - In `NORMAL` mode, press `\` `fg`
+ - Search git files (git status)
+    - In `NORMAL` mode, press `\` `f?`
+ - Use tag to search files
+    - In `NORMAL` mode, press `\` `ft`
+ - Use tag to search files
+    - In `NORMAL` mode, press `\` `ft`
+ - Search git commits (Requires fugitive.vim)
+    - In `NORMAL` mode, press `\` `fc`
+ - Search MRU file
+    - In `NORMAL` mode, press `\` `fh`
+ - Search history commands
+    - In `NORMAL` mode, press `\` `fh?`

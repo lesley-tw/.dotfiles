@@ -123,4 +123,4 @@ dotfiles push -u origin master
 
 ### vim-gutentags
  - Go to tag/function/class
-    - IN `NORMAL` mode, press `Ctrl + ]`
+    - In `NORMAL` mode, press `Ctrl + ]`

@@ -8,7 +8,9 @@ Plug 'morhetz/gruvbox'
 
 Plug 'tpope/vim-surround'
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
+Plug 'junegunn/fzf.vim'
 
 " vim airline
 Plug 'vim-airline/vim-airline'
@@ -41,6 +43,15 @@ Plug 'tpope/vim-fugitive'
 " command-t
 Plug 'wincent/command-t'
 
+" tags
+Plug 'majutsushi/tagbar'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
+Plug 'multilobyte/gtags-cscope'
+
+" polyglot 
+Plug 'sheerun/vim-polyglot'
+
 call plug#end()
 
 " ##################################ShortCut setting##################################
@@ -54,7 +65,7 @@ map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
         exec "w"
         if &filetype == 'sh'
-        	:!time bash %
+            :!time bash %
         elseif &filetype == 'python'
                 exec "!clear":
                 exec "!time python3 %"
@@ -169,20 +180,128 @@ let g:indent_guides_guide_size = 1
 " *************Nerdcommenter*************
 let g:NERDSpaceDelims=1
 
+" *************Gutentags*************
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+let g:gutentags_ctags_tagfile = '.tags'
+
+let g:gutentags_modules = []
+if executable('ctags')
+	let g:gutentags_modules += ['ctags']
+endif
+if executable('gtags-cscope') && executable('gtags')
+	let g:gutentags_modules += ['gtags_cscope']
+endif
+
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extras=+q']
+let g:gutentags_ctags_extra_args += ['--list-kinds=python']
+let g:gutentags_ctags_extra_args += ['--Go-kinds=+cf']
+let g:gutentags_ctags_extra_args += ['--list-kinds=typescript']
+let g:gutentags_ctags_extra_args += ['--list-kinds=javascript']
+let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
+let g:gutentags_auto_add_gtags_cscope = 0
+let g:gutentags_define_advanced_commands = 1
+let g:gutentags_trace = 1
+
+let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.json', '*.xml', 
+                            \ '*.phar', '*.ini', '*.rst', '*.md', '*.bin', 
+                            \ '*storage/*', '*vendor/*', '*node_modules/*', '*public/*']
+let g:gutentags_plus_switch = 1
+
+" *************Tagbar*************
+map <silent> = :TagbarToggle<CR>
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+	    \ 'p:package',
+	    \ 'i:imports:1',
+	    \ 'c:constants',
+	    \ 'v:variables',
+	    \ 't:types',
+	    \ 'n:interfaces',
+	    \ 'w:fields',
+	    \ 'e:embedded',
+	    \ 'm:methods',
+	    \ 'r:constructor',
+	    \ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+	    \ 't' : 'ctype',
+	    \ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+	    \ 'ctype' : 't',
+	    \ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
+
+" *************fzf*************
+" shortcuts
+nnoremap <leader>fl  :Lines 
+nnoremap <leader>fb  :BLines 
+nnoremap <leader>ff  :Files 
+nnoremap <leader>fg  :GFiles 
+nnoremap <leader>f?  :GFiles? 
+nnoremap <leader>ft  :Tags<cr>
+nnoremap <leader>fa  :Ag 
+nnoremap <leader>fc  :Commits
+nnoremap <leader>fh  :History
+nnoremap <leader>fh? :History:
+
+" This is the default extra key bindings
+let g:fzf_action = {
+            \ 'ctrl-t': 'tab split',
+            \ 'ctrl-x': 'split',
+            \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
 " *************Conquer of Completion*************
 " coc config
 let g:coc_global_extensions = [
-  \ 'coc-tabnine',
-  \ 'coc-python',
-  \ 'coc-cfn-lint',
-  \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json',
-  \ 'coc-yaml',
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ ]
+    \ 'coc-tabnine',
+    \ 'coc-python',
+    \ 'coc-cfn-lint',
+    \ 'coc-tsserver',
+    \ 'coc-eslint', 
+    \ 'coc-prettier', 
+    \ 'coc-json',
+    \ 'coc-yaml',
+    \ 'coc-snippets',
+    \ 'coc-pairs',
+    \ ]
 
 " From README
 " TextEdit might fail if hidden is not set.
@@ -205,24 +324,24 @@ set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
+    " Recently vim can merge signcolumn and number column into one
+    set signcolumn=number
 else
-  set signcolumn=yes
+    set signcolumn=yes
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap<tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <c-space> to trigger completion.
@@ -232,9 +351,9 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " position. Coc only does snippet and additional edit on confirm.
 " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
 if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 " Use `[g` and `]g` to navigate diagnostics
@@ -252,11 +371,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
@@ -270,11 +389,11 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder.
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.

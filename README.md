@@ -117,20 +117,10 @@ dotfiles push -u origin master
   - Uncomments
     - Select lines in `VISUAL` mode, press `\` `cu`
 
-### wincent/command-t
-  - Use command-t
-    - In `NORMAL` mode, press `\` `t`
-    - Enter file name in search bar
-      - Open File in current tab
-      	- Press `Enter`
-      - Open file in horizontal window
-        - Press `Ctrl + C`
-      - Open file in vertical window
-        - Press `Ctrl + v`
-      - Open file in new tab
-        - Press `Ctrl + t`
-      - Leave file search bar
-        - Press `Ctrl + c`
-  
+### majutsushi/tagbar
+ - Toggle NERDTree
+    - In `NORMAL` mode, press `=`
 
-
+### vim-gutentags
+ - Go to tag/function/class
+    - IN `NORMAL` mode, press `Ctrl + ]`

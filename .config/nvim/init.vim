@@ -40,9 +40,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
-" command-t
-Plug 'wincent/command-t'
-
 " tags
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'

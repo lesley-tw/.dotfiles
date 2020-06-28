@@ -19,12 +19,14 @@ alias grep="rg"
 alias k="kubectl"
 alias ls="exa --icons -s type"
 alias lc="exa --long --header --icons -s type"
+alias cat="bat"
 
 alias reload-credentials="rm $HOME/.aws/credentials $HOME/.aws/config && \
 	                  launchctl unload -w $HOME/Library/LaunchAgents/com.aws.key.rotate.plist && \
 			  launchctl load -w $HOME/Library/LaunchAgents/com.aws.key.rotate.plist"
 alias dotfiles="/usr/local/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias d="dotfiles"
+alias da="dotfiles add"
 alias dcn!="dotfiles commit -v --no-edit --amend "
 alias dcmsg="dotfiles commit -m "
 alias dst="dotfiles status"

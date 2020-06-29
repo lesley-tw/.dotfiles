@@ -121,9 +121,14 @@ dotfiles push -u origin master
  - Toggle NERDTree
     - In `NORMAL` mode, press `=`
 
-### vim-gutentags
+### ludovicchabant/vim-gutentags
  - Go to tag/function/class
     - In `NORMAL` mode, press `Ctrl + ]`
+ - Go back to previos function
+    - In `NORMAL` mode, press `Ctrl + t`
+ - Search for a particular tag
+    - In `NORMAL` mode, type `:ts <tag>`
+
 ### junegunn/fzf
  - Search lines in all buffers
     - In `NORMAL` mode, press `\` `fl`

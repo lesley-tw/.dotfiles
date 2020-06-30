@@ -271,6 +271,10 @@ nnoremap <leader>fc  :Commits
 nnoremap <leader>fh  :History
 nnoremap <leader>fh? :History:
 
+" Show untracked files and still exclude git ignored files
+" Reference: https://github.com/junegunn/fzf.vim/issues/121#issuecomment-575922206
+nnoremap <silent> <leader>j :GFiles --cached --others --exclude-standard<cr>
+
 " This is the default extra key bindings
 let g:fzf_action = {
 \       'ctrl-t': 'tab split',

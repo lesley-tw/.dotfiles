@@ -106,6 +106,8 @@ dotfiles push -u origin master
 ### preservim/nerdtree
  - Toggle NERDTree
    - In `NORMAL` mode, press `-`
+ - Toggle (show/hide) hidden files in NERDTree
+   - In `NORMAL` mode, press `Shift + i`
 
 ### terryma/vim-multiple-cursors
  - Use multiple cursors

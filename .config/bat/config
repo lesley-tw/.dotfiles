@@ -1,0 +1,5 @@
+--theme="TwoDark"
+
+--style="numbers,changes,header"
+
+--pager="less -RF"

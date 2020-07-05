@@ -149,4 +149,7 @@ dotfiles push -u origin master
  - Search MRU file
     - In `NORMAL` mode, press `\` `fh`
  - Search history commands
-    - In `NORMAL` mode, press `\` `fh?`
+    - In `NORMAL` mode, press `\` `fh?
+
+# References
+* [kirintwn/dotfiles](https://github.com/kirintwn/dotfiles)

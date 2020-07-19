@@ -1,3 +1,8 @@
+# Component: cd
+# Purpose: auto cd to the specified directory
+# Reference: https://unix.stackexchange.com/questions/126719/how-to-disable-auto-cd-in-zsh-with-oh-my-zsh
+setopt auto_cd
+
 # Component: ssh & slogin
 # Purpose: completion with hosts in ~/.ssh/config & ~/.ssh/known_hosts
 # Reference: https://stackoverflow.com/questions/54309712/zsh-doesnt-autocomplete-correctly-my-ssh-command

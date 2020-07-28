@@ -36,5 +36,8 @@
     syntax-theme = TwoDark
     zero-style = dim syntax
     hunk-header-style = omit
+    file-style = bold yellow ul
+    file-decoration-style = none
+
 [pull]
     ff = only

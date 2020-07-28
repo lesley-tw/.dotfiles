@@ -1,5 +1,5 @@
 # aws login cron job
-alias reload-credentials="rm $HOME/.aws/credentials $HOME/.aws/config && \
+alias reload-credentials="rm $HOME/.config/aws/credentials $HOME/.config/aws/config && \
                         launchctl unload -w $HOME/Library/LaunchAgents/com.aws.key.rotate.plist && \
                         launchctl load -w $HOME/Library/LaunchAgents/com.aws.key.rotate.plist"
 

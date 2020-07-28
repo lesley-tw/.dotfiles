@@ -35,3 +35,6 @@
     side-by-side = true
     syntax-theme = TwoDark
     zero-style = dim syntax
+    hunk-header-style = omit
+[pull]
+    ff = only

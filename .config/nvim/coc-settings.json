@@ -1,10 +1,17 @@
 {
-    "python.pythonPath": "/Users/lesley_lin/anaconda3/bin/python",
-    "python.formatting.provider": "autopep8",
-    "python.formatting.autopep8Args": ["--max-line-length", "120", "--experimental"],
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.lintOnSave": true,
-    "python.autoComplete.addBrackets": true,
-    "python.sortImports.args": ["-rc", "--atomic"]
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "coc.preferences.hoverTarget": "preview",
+  "coc.preferences.previewAutoClose": false,
+  "suggest.enablePreselect": true,
+  "suggest.enablePreview": true,
+  "suggest.noselect": false,
+  "python.pythonPath": "/Users/lesley_lin/anaconda3/bin/python",
+  "python.formatting.provider": "yapf",
+  "python.linting.enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.pylintPath": "pylint",
+  "python.linting.pylintEnabled": true,
+  "python.linting.flake8Enabled": false,
+  "python.autoComplete.addBrackets": true,
+  "python.sortImports.args": ["-rc", "--atomic"]
 }

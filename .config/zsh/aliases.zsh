@@ -16,9 +16,13 @@ alias catp="bat -p"
 alias vi="nvim"
 alias vim="nvim"
 alias top="glances"
+#alias tmux='TERM=xterm-256color tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf.local'
+#alias tmux='tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf.local'
 alias ca="conda activate"
 alias sc="source activate"
+alias clr="clear"
 
 # print each PATH entry on a separate line
 alias printpath='print -rl $path'
+alias ssh-hosts="ggrep -P \"^Host ([^*]+)$\" $HOME/.ssh/config | sed 's/Host //'"
 

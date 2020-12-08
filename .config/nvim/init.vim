@@ -14,7 +14,6 @@ let pluginsPath = stdpath('data') . '/plugged'
 call plug#begin(pluginsPath)
 
 Plug 'mhinz/vim-startify'
-Plug 'morhetz/gruvbox'
 
 Plug 'tpope/vim-surround'
 
@@ -59,6 +58,9 @@ Plug 'multilobyte/gtags-cscope'
 
 " polyglot 
 Plug 'sheerun/vim-polyglot'
+
+" color scheme
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 unlet pluginsPath

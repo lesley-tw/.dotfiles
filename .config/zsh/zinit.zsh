@@ -35,9 +35,6 @@ zinit snippet OMZ::plugins/extract
 zinit ice blockf
 zinit light zsh-users/zsh-completions
 
-# asdf
-zinit light asdf-vm/asdf
-
 # bat
 zinit ice as"program" from"gh-r" mv"bat* -> bat" pick"bat/bat"
 zinit light sharkdp/bat
@@ -45,9 +42,8 @@ zinit light sharkdp/bat
 # exa
 zinit ice from"gh-r" as"program" mv"exa* -> exa"
 zinit light ogham/exa
-zinit as"completion" mv"c* -> _exa" for https://github.com/ogham/exa/blob/master/completions/completions.zsh
-#zinit ice as"completion" mv"c* -> _exa"
-#zinit snippet "https://github.com/ogham/exa/blob/master/completions/completions.zsh"
+zinit ice as"completion"
+zinit snippet "https://github.com/ogham/exa/blob/master/completions/zsh/_exa"
 
 # jq
 zinit ice from"gh-r" as"program" mv"jq* -> jq"
@@ -61,7 +57,7 @@ zinit light sharkdp/fd
 zinit ice as"program" from"gh-r" mv"ripgrep* -> ripgrep" pick"ripgrep/rg"
 zinit light BurntSushi/ripgrep
 
-# fzf
+# fzf-bin
 zinit ice from"gh-r" as"program"
 zinit light junegunn/fzf-bin
 zinit snippet "https://github.com/junegunn/fzf/blob/master/shell/completion.zsh"
@@ -70,12 +66,6 @@ zinit snippet "https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zs
 # delta
 zinit ice as"program" from"gh-r" mv"delta* -> delta" pick"delta/delta"
 zinit light dandavison/delta
-
-# z.lua
-# Prerequisites:
-# * asdf - install from zinit
-# * lua - install from asdf
-zinit light skywind3000/z.lua
 
 # fzf-tab
 zinit light Aloxaf/fzf-tab

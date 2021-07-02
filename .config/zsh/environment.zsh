@@ -17,6 +17,7 @@ export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH=$HOME/.local/bin:/Users/lesley_lin/anaconda3/bin:$PATH
 export PYTHONPATH=$HOME/splunk-sdk-python-1.6.6:$PYTHONPATH
-export JAVA_HOME=$(/usr/libexec/java_home)
+# export JAVA_HOME=$(/usr/libexec/java_home)

@@ -36,8 +36,6 @@ brew install cfn-lint
 brew install mysql-client
 brew install shellcheck
 brew install hadolint
-brew install yabai --head
-brew install skhd
 
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code-nerd-font
@@ -47,14 +45,10 @@ brew install --cask visual-studio-code
 brew install --cask docker
 brew install --cask spotify
 brew install --cask telegram
-brew install --cask alacritty
 brew install --cask balance-lock
-brew install --cask scroll-reverser
 brew install --cask karabiner-elements
 brew install --cask bettertouchtool
 brew install --cask yabai
-brew install --cask iina
-brew install --cask zoom
 brew install --cask caffeine
 brew install --cask notion
 brew install --cask sublime-text

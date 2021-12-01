@@ -1,3 +1,5 @@
+setopt auto_cd
+
 # Component: ssh & slogin
 # Purpose: completion with hosts in ~/.ssh/config & ~/.ssh/known_hosts
 # Reference: https://stackoverflow.com/questions/54309712/zsh-doesnt-autocomplete-correctly-my-ssh-command
@@ -6,7 +8,7 @@ if [[ -r ~/.ssh/config ]]; then
   h=($h ${${${(@M)${(f)"$(cat ~/.ssh/config)"}:#Host *}#Host }:#*[*?]*})
 fi
 if [[ -r ~/.ssh/known_hosts ]]; then
-    h=($h ${${${(f)'$(cat ~/.ssh/known_hosts{,2} || true)'}%%\ *}%%,*}) 2>/dev/null
+  h=($h ${${${(f)"$(cat ~/.ssh/known_hosts{,2} || true)"}%%\ *}%%,*}) 2>/dev/null
 fi
 if [[ $#h -gt 0 ]]; then
   zstyle ':completion:*:ssh:*' hosts $h

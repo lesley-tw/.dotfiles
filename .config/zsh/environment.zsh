@@ -22,3 +22,4 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 if command -v fnm &> /dev/null; then
   eval "$(fnm env)"
 fi
+eval "$(/opt/homebrew/bin/brew shellenv)"

@@ -1,3 +1,4 @@
+alias sudo="sudo "
 alias dotfiles="git --git-dir=$XDG_DATA_HOME/dotfiles/ --work-tree=$HOME"
 alias d="dotfiles"
 

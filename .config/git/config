@@ -1,6 +1,6 @@
 [user]
-    name = lesley-tw
-    email = lesleyl.tw@gmail.com
+  name = lesley-tw
+  email = lesleyl.tw@gmail.com
 
 #############################################################
 # switch / replace git user conditionally                   #
@@ -12,32 +12,36 @@
 #############################################################
 
 [includeIf "gitdir:~/Documents/works/"]
-    path = ~/Documents/works/.gitconfig
+  path = ~/Documents/works/.gitconfig
 
 [core]
-    ignorecase = false
-    excludesfile = ~/.config/git/ignore
-    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    pager = delta
+  ignorecase = false
+  excludesfile = ~/.config/git/ignore
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  pager = delta
 
-[interactive]
-    diffFilter = delta --color-only
-
-[color]
-    ui = auto
-
-[alias]
-    parent = "! git log --pretty=format:'%D' HEAD^ | grep 'origin/' | head -n1 | sed 's@origin/@@' | sed 's@,.*@@'"
-    lg = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %C(yellow)%d%Creset' --abbrev-commit
-
-[delta]
-    number = true
-    side-by-side = true
-    syntax-theme = TwoDark
-    zero-style = dim syntax
-    hunk-header-style = omit
-    file-style = bold yellow ul
-    file-decoration-style = none
+[push]
+  default = current
 
 [pull]
-    ff = only
+  ff = only
+
+[interactive]
+  diffFilter = delta --color-only
+
+[color]
+  ui = auto
+
+[delta]
+  number = true
+  side-by-side = true
+  syntax-theme = TwoDark
+  zero-style = dim syntax
+  file-style = bold yellow ul
+  file-decoration-style = none
+  hunk-header-style = omit
+  hunk-header-decoration-style = none
+
+[alias]
+  parent = "! git log --pretty=format:'%D' HEAD^ | grep 'origin/' | head -n1 | sed 's@origin/@@' | sed 's@,.*@@'"
+  lg = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %C(yellow)%d%Creset' --abbrev-commit
